@@ -15,11 +15,6 @@ inquirer
     },
     {
       type: "input",
-      name: "link",
-      message: "Please provide a link to your GitHub profile.",
-    },
-    {
-      type: "input",
       name: "title",
       message: "What is your project's name?",
     },
