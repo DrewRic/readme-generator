@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
+const generateMarkdown = require('./generateMarkdown');
 
-inquirer
-  .prompt([
+const questions = [
     {
       type: "input",
       name: "userName",
@@ -44,7 +45,7 @@ inquirer
       name: "contributing",
       message: "Please list any additional contributors to your project.",
     },
-  ])
+  ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -59,3 +60,5 @@ function writeToFile(fileName, data) {
 
     writeToFile('TESTREADME.md', generateMarkdown(answers));
   }
+
+  init();
