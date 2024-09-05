@@ -39,17 +39,23 @@ inquirer
       name: "test",
       message: "What command should be run to run tests?",
     },
-
     {
       type: "input",
       name: "contributing",
       message: "Please list any additional contributors to your project.",
     },
   ])
-  .then((answers) => {
-    const readmeContent = generateReadme(answers);
 
-    fs.writeFile('README.md', readmeContent, (err) =>
-      err ? console.log(err) : console.log('succesfully created readme.md!')
-  );
-});
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+  console.info('data:', data);
+  return fs.writeFileSync(path.join(process.cwd(),fileName),data);
+  }
+
+  async function init() {
+    const answers = await
+    inquirer.prompt(questions);
+    console.log('Created a readme successfully...');
+
+    writeToFile('TESTREADME.md', generateMarkdown(answers));
+  }
